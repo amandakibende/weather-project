@@ -1,25 +1,41 @@
 body {
-  border: 3px solid red;
+  border: 2px solid #ffff;
   padding: 100px;
-  margin: 50px;
-  background-color: #ffe2bc;
+  margin: 30px;
+  background-image: linear-gradient(
+    to right bottom,
+    #3db2c4,
+    #82c3de,
+    #b8d4ed,
+    #e2e7f7,
+    #ffffff
+  );
 }
-
+.content {
+  padding: 10px;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+}
 form {
   text-align: center;
   line-height: 30px;
+  font-family: "Raleway", sans-serif;
 }
 
-form,
 h1,
 h2,
 .row {
-  font-family: "Pacifico", cursive;
+  font-family: "Raleway", sans-serif;
+  text-align: left;
+  line-height: 30px;
 }
 
-.little {
+.little,
+sup {
   font-size: 15px;
 }
+
 .big {
   font-size: 70px;
 }
