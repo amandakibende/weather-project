@@ -1,0 +1,38 @@
+body {
+  border: 3px solid red;
+  padding: 100px;
+  margin: 50px;
+  background-color: #ffe2bc;
+}
+
+form {
+  text-align: center;
+  line-height: 30px;
+}
+
+form,
+h1,
+h2,
+.row {
+  font-family: "Pacifico", cursive;
+}
+
+.little {
+  font-size: 15px;
+}
+.big {
+  font-size: 70px;
+}
+
+.container {
+  padding: 1px;
+  padding: 80px 20px 2px 20px;
+}
+.row {
+  font-size: 18px;
+  padding: 20px;
+}
+#emoji,
+#weather {
+  font-size: 50px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather plan</title>
+
+    <script
+      src="https://kit.fontawesome.com/96875a5e76.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <form>
+      <input type="text" placeholder="Type location..." />
+    </form>
+
+    <h1>PARIS</h1>
+    <h2>
+      <p class="little">Today</p>
+      <p class="big">21° <i class="far fa-sun"></i></p>
+    </h2>
+
+    <div class="container">
+      <div class="row" id="emoji">
+        <div class="col"><i class="fas fa-cloud-sun"></i></div>
+        <div class="col"><i class="fas fa-cloud"></i></div>
+        <div class="col"><i class="fas fa-cloud-showers-heavy"></i></div>
+        <div class="col"><i class="fas fa-sun"></i></div>
+        <div class="col"><i class="fas fa-sun"></i></div>
+      </div>
+      <div class="row">
+        <div class="col">Tomorrow</div>
+        <div class="col">Monday</div>
+        <div class="col">Tuesday</div>
+        <div class="col">Wednesday</div>
+        <div class="col">Thursday</div>
+      </div>
+
+      <div class="row" id="weather">
+        <div class="col">15°</div>
+        <div class="col">12°</div>
+        <div class="col">20°</div>
+        <div class="col">23°</div>
+        <div class="col">23°</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
