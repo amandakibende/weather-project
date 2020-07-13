@@ -1,22 +1,18 @@
-body {
-  border: 2px solid #ffff;
-  padding: 100px;
-  margin: 30px;
-  background-image: linear-gradient(
-    to right bottom,
-    #3db2c4,
-    #82c3de,
-    #b8d4ed,
-    #e2e7f7,
-    #ffffff
-  );
+small {
+  padding: 50px;
 }
+
 .content {
-  padding: 10px;
+  padding: 18px;
   max-width: 600px;
   display: block;
-  margin: 0 auto;
+  margin: 30px auto;
+  border: 2px solid #000000;
+  background-image: url(img/cloud.jpg);
+  border-radius: 7px;
+  background-size: cover;
 }
+
 form {
   text-align: center;
   line-height: 30px;

@@ -9,6 +9,7 @@ let days = [
   "Friday",
   "Saturday",
 ];
+console.log(days);
 
 let today = days[now.getDay()];
 console.log(today);
@@ -54,6 +55,7 @@ location.addEventListener("submit", currentLocation);
 
 //
 function theWeather(response) {
+  let cityName = document.querySelector("#city-input");
   let temp = Math.round(response.data.main.temp);
   console.log(temp);
 
