@@ -20,7 +20,7 @@ console.log(hour);
 let minute = now.getMinutes();
 console.log(minute);
 
-let currentDay = document.querySelector("p.today");
+let currentDay = document.querySelector("#today");
 currentDay.innerHTML = `${today} ${hour}:${minute}`;
 
 //
@@ -50,8 +50,8 @@ function currentLocation(event) {
   navigator.geolocation.getCurrentPosition(city);
 }
 
-let location = document.querySelector("#location");
-location.addEventListener("submit", currentLocation);
+let locationForm = document.querySelector("#location");
+locationForm.addEventListener("submit", currentLocation);
 
 //
 function theWeather(response) {
