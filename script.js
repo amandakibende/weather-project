@@ -1,3 +1,4 @@
+// current hour installing
 let now = new Date();
 
 let days = [
@@ -60,7 +61,7 @@ function theWeather(response) {
   console.log(temp);
 
   let weather = document.querySelector("p.big");
-  weather.innerHTML = `curently ${temp}°`;
+  weather.innerHTML = `${temp}°`;
 }
 
 function currentWeather(position) {
