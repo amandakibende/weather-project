@@ -91,11 +91,7 @@ function displayWeather(response) {
   console.log(temp);
 }
 
-function parisWeather(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=Parislat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
-  console.log(url);
-  axios.get(url).then(displayWeather);
-}
+let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
+let url = `https://api.openweathermap.org/data/2.5/weather?q=Parislat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
+console.log(url);
+axios.get(url).then(displayWeather);
