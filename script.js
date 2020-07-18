@@ -91,7 +91,7 @@ function displayWeather(response) {
   console.log(temp);
 }
 
-function parisWeather(response) {
+function parisWeather(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
