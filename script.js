@@ -70,7 +70,7 @@ function currentWeather(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric&${city}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
   console.log(url);
   axios.get(url).then(theWeather);
 }
@@ -85,19 +85,17 @@ position.addEventListener("submit", currentButton);
 
 // display the current Paris weather when open the app
 
-function capitalWeather(response) {
-  let temp = Math.round(response.data.main.temp);
+function displayWeather(response) {
+  let temp = document.querySelector("p.big");
+  temp.innerHTML = Math.round(response.data.main.temp);
   console.log(temp);
-  let weatherInParis = document.querySelector(`p.big`);
-  weatherInParis = `${temp}`;
 }
 
 function parisWeather(response) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let city = `Paris`;
   let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=Parislat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
   console.log(url);
-  axios.get(url).then(capitalWeather);
+  axios.get(url).then(displayWeather);
 }
