@@ -1,4 +1,5 @@
 // current hour installing
+
 let now = new Date();
 
 let days = [
@@ -24,7 +25,7 @@ console.log(minute);
 let currentDay = document.querySelector("#today");
 currentDay.innerHTML = `${today} ${hour}:${minute}`;
 
-//
+// get city name weather
 
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -54,7 +55,8 @@ function currentLocation(event) {
 let locationForm = document.querySelector("#location");
 locationForm.addEventListener("submit", currentLocation);
 
-//
+// get current weather data when click "search"
+
 function theWeather(response) {
   let cityName = document.querySelector("#city-input");
   let temp = Math.round(response.data.main.temp);
@@ -68,7 +70,7 @@ function currentWeather(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric&${city}`;
   console.log(url);
   axios.get(url).then(theWeather);
 }
@@ -80,3 +82,22 @@ function currentButton(event) {
 
 let position = document.querySelector("#location");
 position.addEventListener("submit", currentButton);
+
+// display the current Paris weather when open the app
+
+function capitalWeather(response) {
+  let temp = Math.round(response.data.main.temp);
+  console.log(temp);
+  let weatherInParis = document.querySelector(`p.big`);
+  weatherInParis = `${temp}`;
+}
+
+function parisWeather(response) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let city = `Paris`;
+  let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
+  console.log(url);
+  axios.get(url).then(capitalWeather);
+}
