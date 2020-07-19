@@ -25,7 +25,7 @@ console.log(minute);
 let currentDay = document.querySelector("#today");
 currentDay.innerHTML = `${today} ${hour}:${minute}`;
 
-// get city name weather
+// get current weather data when click "current"
 
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -87,8 +87,12 @@ position.addEventListener("submit", currentButton);
 
 function displayWeather(response) {
   let temp = document.querySelector("p.big");
+  let wind = document.querySelector(".wind");
+  let humidity = document.querySelector(".humidity");
+
   temp.innerHTML = `${Math.round(response.data.main.temp)}°`;
-  console.log(temp);
+  wind.innerHTML = response.data.main.humidity;
+  humidity.innerHTML = `Wind ${Math.round(response.data.main.wind.speed)} km/h`;
 }
 
 let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
