@@ -87,7 +87,7 @@ position.addEventListener("submit", currentButton);
 
 function displayWeather(response) {
   let temp = document.querySelector("p.big");
-  temp.innerHTML = Math.round(response.data.main.temp);
+  temp.innerHTML = `${Math.round(response.data.main.temp)}°`;
   console.log(temp);
 }
 

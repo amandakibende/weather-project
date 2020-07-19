@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather plan</title>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script
       src="https://kit.fontawesome.com/96875a5e76.js"
       crossorigin="anonymous"
     ></script>
     <script src="index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -32,39 +33,24 @@
         <input type="submit" value="Current" id="current-input" />
       </form>
 
-      <h1>PARIS</h1>
-      <h2>
-        <p id="today">Today</p>
-        <sup>
-          <a href="#" id="Cel"> °C </a> |
-          <a href="#" id="Farh">°F </a>
-        </sup>
-        <p class="big">21° <i class="far fa-sun"></i></p>
-      </h2>
-
-      <div class="container">
-        <div class="row" id="emoji">
-          <div class="col"><i class="fas fa-cloud-sun"></i></div>
-          <div class="col"><i class="fas fa-cloud"></i></div>
-          <div class="col"><i class="fas fa-cloud-showers-heavy"></i></div>
-          <div class="col"><i class="fas fa-sun"></i></div>
-          <div class="col"><i class="fas fa-sun"></i></div>
-        </div>
-        <div class="row">
-          <div class="col">Tomorrow</div>
-          <div class="col">Monday</div>
-          <div class="col">Tuesday</div>
-          <div class="col">Wednesday</div>
-          <div class="col">Thursday</div>
+      <div class="row">
+        <div class="col-6">
+          <h1>PARIS</h1>
+          <div id="today"></div>
+          <span>
+            <a href="#" id="Cel"> °C </a> |
+            <a href="#" id="Farh">°F </a>
+          </span>
+          <p class="big">° <i class="icn"></i></p>
         </div>
 
-        <div class="row" id="weather">
-          <div class="col">15°</div>
-          <div class="col">12°</div>
-          <div class="col">20°</div>
-          <div class="col">23°</div>
-          <div class="col">23°</div>
+        <div class="col-6">
+          <ul>
+            <li>Humidity: <span id="humidity"></span>%</li>
+            <li>Wind: <span id="wind"></span> km/h</li>
+          </ul>
         </div>
+        <div class="row forecast-weather" id="forecast"></div>
       </div>
     </div>
     <small
