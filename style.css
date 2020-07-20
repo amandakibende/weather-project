@@ -36,11 +36,6 @@ h2,
   line-height: 30px;
 }
 
-.little,
-sup {
-  font-size: 15px;
-}
-
 .big {
   font-size: 70px;
 }
@@ -53,7 +48,9 @@ sup {
   font-size: 18px;
   padding: 20px;
 }
-#emoji,
-#weather {
-  font-size: 50px;
+
+img {
+  margin-right: 10px;
+  height: 80px;
+  width: 80px;
 }

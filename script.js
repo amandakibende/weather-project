@@ -31,13 +31,20 @@ function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
 
-  let currentTemp = document.querySelector("p.big");
+  let currentTemp = document.querySelector("div.big");
   let wind = document.querySelector("#wind");
   let humidity = document.querySelector("#humidity");
+  let iconElement = document.querySelector("#icon");
+  let sky = document.querySelector("#sky");
 
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°`;
-  wind.innerHTML = `Wind: ${Math.round(response.data.main.wind.speed)} km/h`;
-  humidity.innerHTML = ` Humidity: ${response.data.main.humidity}%`;
+  wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}`;
+  humidity.innerHTML = `Humidity: ${response.data.main.humidity}`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  sky.innerHTML = response.data.weather[0].description;
 }
 
 function city(response) {
@@ -59,49 +66,23 @@ function currentLocation(event) {
 let locationForm = document.querySelector("#location");
 locationForm.addEventListener("submit", currentLocation);
 
-// get current weather data when click "current"
-
-function theWeather(response) {
-  let cityName = document.querySelector("#city-input");
-  let temp = Math.round(response.data.main.temp);
-  console.log(temp);
-
-  let weather = document.querySelector("p.big");
-  weather.innerHTML = `${temp}°*`;
-}
-
-function currentWeather(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`;
-  console.log(url);
-  axios.get(url).then(theWeather);
-}
-
-function currentButton(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(currentWeather);
-}
-
-let position = document.querySelector("#location");
-position.addEventListener("submit", currentButton);
-
 // display the current Paris weather when open the app
 
 function displayWeather(response) {
-  let temp = document.querySelector("p.big");
+  let temp = document.querySelector("div.big");
   let wind = document.querySelector("#wind");
   let humidity = document.querySelector("#humidity");
   let iconElement = document.querySelector("#icon");
+  let sky = document.querySelector("#sky");
 
   temp.innerHTML = `${Math.round(response.data.main.temp)}°`;
-  wind.innerHTML = `Wind: ${Math.round(response.data.main.wind.speed)} km/h`;
-  humidity.innerHTML = ` Humidity: ${response.data.main.humidity}%`;
+  wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}`;
+  humidity.innerHTML = `Humidity: ${response.data.main.humidity}`;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0]}@2x.png)`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  sky.innerHTML = response.data.weather[0].description;
 }
 
 let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
@@ -109,3 +90,17 @@ let url = `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${key}&
 console.log(url);
 
 axios.get(url).then(displayWeather);
+
+function displayFarh(event) {
+  event.preventDefault();
+  let temp = document.querySelector("div.big");
+  let farheneit = (19 * 9) / 5 + 32;
+
+  temp.innerHTML = Math.round(farheneit);
+}
+
+let Farh = document.querySelector("#Farh");
+Farh.addEventListener("click", displayFarh);
+
+let cel = document.querySelector("#Cel");
+cel.addEventListener("click", displayCels);
