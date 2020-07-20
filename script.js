@@ -25,15 +25,19 @@ console.log(minute);
 let currentDay = document.querySelector("#today");
 currentDay.innerHTML = `${today} ${hour}:${minute}`;
 
-// get current weather data when click "current"
+// get current weather data when click "search"
 
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
 
   let currentTemp = document.querySelector("p.big");
+  let wind = document.querySelector("#wind");
+  let humidity = document.querySelector("#humidity");
 
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°`;
+  wind.innerHTML = `Wind: ${Math.round(response.data.main.wind.speed)} km/h`;
+  humidity.innerHTML = ` Humidity: ${response.data.main.humidity}%`;
 }
 
 function city(response) {
@@ -55,7 +59,7 @@ function currentLocation(event) {
 let locationForm = document.querySelector("#location");
 locationForm.addEventListener("submit", currentLocation);
 
-// get current weather data when click "search"
+// get current weather data when click "current"
 
 function theWeather(response) {
   let cityName = document.querySelector("#city-input");
@@ -63,7 +67,7 @@ function theWeather(response) {
   console.log(temp);
 
   let weather = document.querySelector("p.big");
-  weather.innerHTML = `${temp}°`;
+  weather.innerHTML = `${temp}°*`;
 }
 
 function currentWeather(position) {
@@ -87,12 +91,17 @@ position.addEventListener("submit", currentButton);
 
 function displayWeather(response) {
   let temp = document.querySelector("p.big");
-  let wind = document.querySelector(".wind");
-  let humidity = document.querySelector(".humidity");
+  let wind = document.querySelector("#wind");
+  let humidity = document.querySelector("#humidity");
+  let iconElement = document.querySelector("#icon");
 
   temp.innerHTML = `${Math.round(response.data.main.temp)}°`;
-  wind.innerHTML = response.data.main.humidity;
-  humidity.innerHTML = `Wind ${Math.round(response.data.main.wind.speed)} km/h`;
+  wind.innerHTML = `Wind: ${Math.round(response.data.main.wind.speed)} km/h`;
+  humidity.innerHTML = ` Humidity: ${response.data.main.humidity}%`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0]}@2x.png)`
+  );
 }
 
 let key = "b8ff265fd38bbab1d6be0d9dd9df4fc7";
