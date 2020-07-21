@@ -37,6 +37,8 @@ function showWeather(response) {
   let iconElement = document.querySelector("#icon");
   let sky = document.querySelector("#sky");
 
+  celsTemp = response.data.main.temp;
+
   currentTemp.innerHTML = `${Math.round(response.data.main.temp)}°`;
   wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}`;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}`;
@@ -75,6 +77,8 @@ function displayWeather(response) {
   let iconElement = document.querySelector("#icon");
   let sky = document.querySelector("#sky");
 
+  celsTemp = response.data.main.temp;
+
   temp.innerHTML = `${Math.round(response.data.main.temp)}°`;
   wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}`;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}`;
@@ -91,16 +95,23 @@ console.log(url);
 
 axios.get(url).then(displayWeather);
 
-function displayFarh(event) {
+function displayFahr(event) {
   event.preventDefault();
   let temp = document.querySelector("div.big");
-  let farheneit = (19 * 9) / 5 + 32;
-
-  temp.innerHTML = Math.round(farheneit);
+  let fahrenheit = (celsTemp * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheit);
 }
 
-let Farh = document.querySelector("#Farh");
-Farh.addEventListener("click", displayFarh);
+function displayCelsius(event) {
+  event.preventDefault();
+  let temp = document.querySelector("div.big");
+  temp.innerHTML = `${Math.round(celsTemp)}°`;
+}
 
-let cel = document.querySelector("#Cel");
-cel.addEventListener("click", displayCels);
+let celsTemp = null;
+
+let Fahr = document.querySelector("#Fahr");
+Fahr.addEventListener("click", displayFahr);
+
+let celsius = document.querySelector("#Cel");
+celsius.addEventListener("click", displayCelsius);
